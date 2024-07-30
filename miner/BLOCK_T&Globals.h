@@ -21,10 +21,12 @@
 #include <errno.h>
 #include <string.h>
 
-#define SERVER_PATH "/home/niv/LinuxCourse/mta_task_3/pipes/server"
-#define SERVER_PATH_FOR_MINER_PATH "/home/niv/LinuxCourse/mta_task_3/pipes/servertmp"
-#define MINER_PATH "/home/niv/LinuxCourse/mta_task_3/pipes/miner_pipe_" // gerneral path need to add the id of the miner
-
+#define MAX_PATH_LENGTH 512
+#define MAIN_PATH "/mnt/mta/"
+#define SERVER_PATH "server_pipe"
+#define SERVER_PATH_FOR_MINER_PATH "server_tmp"
+#define MINER_PATH "miner_pipe_" // gerneral path need to add the id of the miner
+#define LOG_PATH "/var/log/"
  typedef struct {
     int         	height;        // Incrementeal ID of the block in the chain
     int         	timestamp;    // Time of the mine in seconds since epoch

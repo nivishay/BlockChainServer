@@ -24,8 +24,10 @@ unsigned long calculateCRC32(const BLOCK_T& block)
     return crc;
 }
 int getDifficulty(){
+    char* configpath = (char*)malloc(MAX_PATH_LENGTH);
+    sprintf(configpath, "%s%s", MAIN_PATH, "mtacoin.config");
     int difficulty = 0;
-    FILE *file = fopen("/home/niv/LinuxCourse/mta_task_3/config.txt", "r");
+    FILE *file = fopen(configpath, "r");
     if (file == NULL)
     {
         perror("open");

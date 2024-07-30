@@ -5,14 +5,13 @@ FROM ubuntu:22.04
 RUN apt-get update && apt-get install -y 
 
 # Set the working directory
-WORKDIR /server
-
+COPY build/funCoin /app
+WORKDIR /var/log
+RUN touch mtacoin.log
+WORKDIR /mnt/mta
+RUN touch mtacoin.config
+RUN echo "12" > mtacoin.config
 # Copy the CMakeLists.txt file
-COPY CMakeLists.txt .
-COPY build .
-
-# Expose the port
-EXPOSE 8080
 
 # Start the server
-CMD ["./funCoin"]
+#CMD ["/app/funCoin", ">", "/var/log/mtacoin.log"]

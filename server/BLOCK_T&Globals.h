@@ -21,6 +21,7 @@
 #include <errno.h>
 #include <string.h>
 
+#define MAX_PATH_LENGTH 512
 #define MAIN_PATH "/mnt/mta/"
 #define SERVER_PATH "server_pipe"
 #define SERVER_PATH_FOR_MINER_PATH "server_tmp"
