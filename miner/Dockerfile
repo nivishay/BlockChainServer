@@ -5,13 +5,11 @@ FROM ubuntu:22.04
 RUN apt-get update && apt-get install -y 
 
 # Set the working directory
-WORKDIR /miner
+WORKDIR /mnt/mta
 
-# Copy the CMakeLists.txt file
-COPY build .
+RUN touch /var/log/mtacoin.log
 
-# Expose the port
-EXPOSE 8080
+COPY build/funCoin /app
 
 # Start the server
-CMD ["./funCoin"]
+CMD ["/app", ">", "/var/log/mtacoin.log"]

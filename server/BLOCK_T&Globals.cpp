@@ -25,8 +25,9 @@ unsigned long calculateCRC32(const BLOCK_T& block)
 }
 int getDifficulty(){
     char* configpath = (char*)malloc(MAX_PATH_LENGTH);
-    sprintf(configpath, "%s%s", MAIN_PATH, "mtacoin.config");
+    sprintf(configpath, "%s%s", MAIN_PATH, "mtacoin.conf");
     int difficulty = 0;
+    std::cout<<"configpath: "<<configpath<<std::endl;
     FILE *file = fopen(configpath, "r");
     if (file == NULL)
     {

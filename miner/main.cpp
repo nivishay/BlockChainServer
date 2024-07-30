@@ -11,9 +11,10 @@ int main()
     strcat(server_path, SERVER_PATH);
     strcat(server_pass_id_path, SERVER_PATH_FOR_MINER_PATH);
     strcat(miner_path, MINER_PATH);
-    
+
     Miner miner;
     int id=0;
+    std::cout<<server_path<<std::endl;
 
     int serverfd = open(server_path,O_WRONLY);
     miner.serverfd = serverfd;
