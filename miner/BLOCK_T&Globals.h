@@ -13,13 +13,17 @@
 #include <pthread.h>
 #include <iomanip>
 #include <queue>
-
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <errno.h>
+#include <string.h>
+
+#define SERVER_PATH "/home/niv/LinuxCourse/mta_task_3/pipes/server"
+#define SERVER_PATH_FOR_MINER_PATH "/home/niv/LinuxCourse/mta_task_3/pipes/servertmp"
+#define MINER_PATH "/home/niv/LinuxCourse/mta_task_3/pipes/miner_pipe_" // gerneral path need to add the id of the miner
 
  typedef struct {
     int         	height;        // Incrementeal ID of the block in the chain
@@ -33,21 +37,12 @@
 
 typedef struct {
    BLOCK_T block;
-   int id;
-   bool is_mined = false;
+   bool born_first_msg = false; //when the miner is born for the first time 
 }TLV;
 
-extern std::queue <BLOCK_T> mined_blocks;
-extern unsigned int hash_found;        // Current block hash value
-extern BLOCK_T block_to_be_mined;
-#define FAKE_MINER_ID 1
-#define NUM_MINERS 5
-extern int  DIFFICULTY;//TODO:needs to be argv from the program
-
-const char* server_path = ".server/Server_pipe";
-const char* miner_path1 = ".miner/Miner_pipe_1";
 bool hasLeadingZeroBits(unsigned int number, int x);
 int countLeadingZeros(unsigned int number);
 unsigned long calculateCRC32(const BLOCK_T& block);
+int getDifficulty();
 
 #endif //_WIN32

@@ -10,12 +10,17 @@ class Miner
     //calculating the hash//
     public:
     virtual unsigned long mineBlock();
-    Miner() = default;
-    
-    void* start(void* arg);
+    TLV tlv_to_be_mined;
+    Miner();
+    int minerfd;
+    int serverfd;
     void MinerBlockMessage(BLOCK_T block);
     void relayMinedBlock(BLOCK_T& block);
-
+    void changeid(int ID);
+    int geID()
+    {
+        return id;
+    }
     ~Miner()
     {
 

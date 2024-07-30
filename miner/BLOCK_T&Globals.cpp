@@ -23,3 +23,16 @@ unsigned long calculateCRC32(const BLOCK_T& block)
     crc = crc32(crc, reinterpret_cast<const Bytef*>(&block), sizeof(block));
     return crc;
 }
+
+int getDifficulty(){
+    int difficulty = 0;
+    FILE *file = fopen("/home/niv/LinuxCourse/mta_task_3/config.txt", "r");
+    if (file == NULL)
+    {
+        perror("open");
+        return 1;
+    }
+    fscanf(file, "%d", &difficulty);
+    fclose(file);
+    return difficulty;
+}

@@ -13,10 +13,14 @@ private:
 public:
      Server();
 
-    ~Server();
+    ~Server()
+    {
+
+    };
     bool isValidHash(BLOCK_T block);
     void addBlock(BLOCK_T block);
-    void* start(void* arg);
+    BLOCK_T lastAddedBlock();
 };
+
 
 #endif // SERVER_H
