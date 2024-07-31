@@ -16,7 +16,6 @@ bool hasLeadingZeroBits(unsigned int number, int x) {
     return countLeadingZeros(number) == x;
 }
 
-
 unsigned long calculateCRC32(const BLOCK_T& block) 
 {
     unsigned long crc = crc32(0, nullptr, 0);
@@ -27,7 +26,6 @@ int getDifficulty(){
     char* configpath = (char*)malloc(MAX_PATH_LENGTH);
     sprintf(configpath, "%s%s", MAIN_PATH, "mtacoin.conf");
     int difficulty = 0;
-    std::cout<<"configpath: "<<configpath<<std::endl;
     FILE *file = fopen(configpath, "r");
     if (file == NULL)
     {

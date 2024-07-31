@@ -2,6 +2,7 @@
 
 Miner::Miner(){
     tlv_to_be_mined.born_first_msg = true;
+    tlv_to_be_mined.block = {1,static_cast<int>(time(nullptr)), 0,0, 0,1, -1};
 }
 void Miner::changeid(int ID)
 {

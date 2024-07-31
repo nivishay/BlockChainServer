@@ -15,8 +15,8 @@ int main()
     strcat(server_pass_id_path, SERVER_PATH_FOR_MINER_PATH);
     strcat(miner_path, MINER_PATH);
 
-    std::cout<<server_path<<std::endl;
-    std::cout<<"reading mnt/mta/config.txt"<<std::endl;
+    
+    std::cout<<"reading mnt/mta/conf..."<<std::endl;
     int difficulty = getDifficulty();
     std::cout<<"difficulty set to: "<<difficulty<<std::endl;
     int num_of_miners = 1;

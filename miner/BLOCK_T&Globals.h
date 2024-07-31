@@ -20,6 +20,9 @@
 #include <stdio.h>
 #include <errno.h>
 #include <string.h>
+#include <poll.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 #define MAX_PATH_LENGTH 512
 #define MAIN_PATH "/mnt/mta/"

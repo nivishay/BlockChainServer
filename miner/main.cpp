@@ -14,10 +14,10 @@ int main()
 
     Miner miner;
     int id=0;
-    std::cout<<server_path<<std::endl;
 
     int serverfd = open(server_path,O_WRONLY);
     miner.serverfd = serverfd;
+    
     int serverfd_for_miner = open(server_pass_id_path,O_RDONLY); // pipe to get the path for each miner 
     write(serverfd,&miner.tlv_to_be_mined,sizeof(TLV)); // first time write to server
 
@@ -32,6 +32,9 @@ int main()
         perror("open");
         return 1;
     }
+
+    sleep(1);// the sleep i just 1 time to make sure the server writes to the pipe
+
     while (true)
     {
         int readbytes = read(Minerfd,&(miner.tlv_to_be_mined),sizeof(TLV));
