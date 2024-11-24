@@ -1,5 +1,5 @@
 # funCoin
-
+(you can run the program by  running ./mtacoin.sh in the terminal(it will pull the Dockers).
 ## Objective
 The objective of this project is to practice synchronization between consumer and producer threads within the same process. This is achieved by executing a multithreaded application that simulates a cryptocurrency blockchain network with 4 mining threads and 1 server thread.
 
